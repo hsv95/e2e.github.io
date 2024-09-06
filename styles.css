@@ -1,0 +1,435 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('graphics/Roboto/Roboto-Thin.ttf'), format('.ttf'); /* Pfad zur TTF-Datei */
+         
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto-light';
+    src: url(graphics/Roboto/Roboto-ThinItalic.ttf), format('.ttf');
+
+    
+}
+header {
+    position: relative;
+    height: 300px; /* Höhe des Header-Videos anpassen */
+    overflow: hidden;
+    font-family: 'Roboto-light', sans-serif;
+    font-size: xx-large;
+    font-stretch: extra-expanded;
+    font-weight: 100;
+    width: 100%;
+    
+}
+h1 {
+    opacity: 0.9; /* Hier kannst du den gewünschten Opazitätswert einstellen */
+}
+
+body {
+    margin-top: 0%;
+    font-family: 'Roboto', sans-serif;
+}
+/* Top-Bar */
+.top-bar {
+    background-color: #414141; /* Hellgrauer Hintergrund */
+    color: #ffffff; /* Weiße Schriftfarbe */
+    display: flex;
+    justify-content: space-between; /* Adresse und Button an entgegengesetzte Enden schieben */
+    align-items: center;
+    padding: 10px; /* Innenabstand */
+    width: 100%; /* Über die gesamte Breite */
+    box-sizing: border-box; /* Stellt sicher, dass das Padding innerhalb der Breite liegt */
+}
+
+.address {
+    font-size: 14px; /* Schriftgröße der Adresse */
+    display: flex;
+    align-items: center;
+}
+
+.address-icon {
+    margin-left: 30px;
+    margin-right: 5px; /* Abstand zwischen dem Icon und der Adresse verringern */
+    width: 16px; /* Breite des Icons anpassen */
+    height: 16px; /* Höhe des Icons anpassen */
+}
+
+.contact-button {
+    background-color: #789e2d; /* Blaue Hintergrundfarbe */
+    color: #ffffff; /* Weiße Schriftfarbe */
+    border: none;
+    margin-right: 30px;
+    padding: 10px 20px; /* Innenabstand */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background-color: #537907; /* Dunkleres Blau beim Hover */
+}
+
+.menu-icon {
+    position: absolute; /* Ändert die Positionierung zu relative */
+    top: 5%;
+    right: 2%;
+    display: inline-block; /* Ermöglicht das Platzieren des Dropdown-Menüs direkt darunter */
+    z-index: 1; /* Stelle sicher, dass das Symbol über dem Video liegt */
+    
+}
+
+.menu-icon img {
+    transition: transform 0.3s ease; /* Füge eine Transition für die Rotation hinzu */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* Rechtsbündig */
+    min-width: 200px; /* Minimale Breite, um es flexibler zu machen */
+    width: auto; /* Automatische Breitenanpassung an den Inhalt */
+    background-color: #414141;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Menü wird über anderen Elementen angezeigt */
+}
+
+/* Mobile-friendly settings */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        right: 10px; /* Für kleinere Bildschirme näher am Rand */
+    }
+
+    .dropdown-menu {
+        width: 100vw; /* Passt das Menü an die volle Bildschirmbreite an */
+        right: 0;
+    }
+}
+
+.menu-icon:hover .dropdown-menu,
+.menu-icon:focus-within .dropdown-menu,
+.dropdown-menu:hover {
+    display: block; /* Dropdown-Menü anzeigen, wenn das Symbol oder das Menü selbst gehovered wird */
+}
+
+.menu-icon:hover img,
+.menu-icon:focus-within img,
+.dropdown-menu:hover + img {
+    transform: rotate(90deg); /* Dreht das Symbol um 90 Grad */
+}
+
+.dropdown-menu a {
+    color: #ffffff; /* Setzt die Schriftfarbe im Dropdown-Menü auf weiß */
+    text-decoration: none; /* Entfernt den Unterstrich */
+    display: block; /* Macht die Links als Block-Elemente, damit sie den gesamten Bereich füllen */
+    padding: 5px 0; /* Fügt Innenabstand hinzu */
+}
+
+.dropdown-menu a:hover {
+    color: #dddddd; /* Optional: hellere Farbe beim Hover, wenn gewünscht */
+    text-decoration: none; /* Stellt sicher, dass beim Hover kein Unterstrich erscheint */
+}
+
+
+.header-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.header-icon {
+    position: absolute;
+    width: 7vw; /* Icon-Größe relativ zur Viewport-Breite */
+    height: auto; /* Höhe passt sich automatisch an */
+    left: 30px;
+    top: -60px;
+    opacity: 0.9;
+}
+
+.header-title {
+    position: relative;
+    text-align: center;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    color: #f0f0f0;
+    font-family: 'Roboto-light', sans-serif;
+    font-size: 5vw;
+    
+}
+@media screen and (max-width: 768px) {
+    .header-icon {
+        width: 20vw; /* Größere Icons für kleinere Bildschirme */
+    }
+
+    .header-title {
+        font-size: 6vw; /* Größere Überschrift für kleinere Bildschirme */
+    }
+}
+
+video {
+    position: absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px; /* Maximale Breite des Inhaltsbereichs */
+    margin: 0 auto; /* Zentriert den Inhaltsbereich */
+    padding: 20px; /* Innenabstand für den Inhaltsbereich */
+}
+
+/* Slogan */
+.slogan {
+    text-align: center; /* Zentriert den Text */
+    font-family: 'Roboto', sans-serif; /* Schriftart */
+    font-size: 28px; /* Schriftgröße anpassen */
+    color: #789e2d;
+    font-weight: bold; /* Fettschrift */
+    margin: 50px 0 10px 0; /* Abstand oben und unten reduziert */
+    letter-spacing: 2px; /* Abstand zwischen den Buchstaben */
+    text-transform: uppercase; /* Alle Buchstaben groß */
+}
+
+.core-competencies {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Spalten */
+    grid-template-rows: repeat(2, 1fr); /* 2 Zeilen */
+    flex-wrap: wrap; /* Umbruch der Kacheln bei Bedarf auf mehrere Zeilen */
+    justify-content: center; /* Zentriert die Kacheln horizontal */
+    padding: 50px 0 250px 0;
+    perspective: 200px; /* Perspektive für die 3D-Drehung */
+}
+
+/* Wenn die Bildschirmbreite kleiner wird, ändere flex-direction auf column */
+@media screen and (max-width: 768px) {
+    .core-competencies {
+        grid-template-columns: repeat(1, 1fr); /* 3 Spalten */
+        grid-template-rows: repeat(6, 1fr); /* 2 Zeilen */
+        
+    }
+}
+
+.core-competency {
+    flex-basis: calc(33.33% - 20px);
+    padding: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px; /* Abstand zwischen den Kacheln */
+}
+.core-competency img {
+    width: 80px; /* Kleinere Bildgröße */
+    height: 80px; /* Kleinere Bildgröße */
+    margin-bottom: 5px; /* Weniger Abstand unter den Bildern */
+}
+
+.back {
+    flex-basis: calc(33.33% - 20px);
+    padding: 20px;
+    backface-visibility: hidden; /* Versteckt die Rückseite der Kachel */
+    transition: transform 1s; /* Fügt eine flüssige Übergangseffekt hinzu */
+}
+
+.front {
+    flex-basis: calc(33.33% - 20px);
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px; /* Abstand zwischen den Kacheln */
+}
+
+.back {
+    background-color: #f0f0f0;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Startet auf der Rückseite */
+    padding: 20px;
+    color: #000000; /* Textfarbe für die Rückseite */
+}
+
+.core-competency:hover .front {
+    display: none;
+    transform: rotateY(-180deg); 
+    /* Dreht die Vorderseite um */
+}
+
+.core-competency:hover .back {
+    display: block;
+    transform: rotateY(0deg); /* Dreht die Rückseite um */
+}
+
+/* Team Section Wrapper */
+.team-section-wrapper {
+    width: 100%; /* Über die gesamte Breite */
+    background-color: #f0f0f0; /* Leicht graue Hintergrundfarbe */
+}
+
+/* Team Section */
+.team-section {
+    max-width: 1200px; /* Maximale Breite des Inhaltsbereichs */
+    margin: 0 auto; /* Zentriert den Inhaltsbereich */
+    padding: 50px 20px; /* Innenabstand oben und unten */
+}
+.headline{
+
+    text-align: center;
+    color: #789e2d;
+}
+.hidden {
+    opacity: 0 ;
+    transform: scale(0.5); /* Verkleinere das Bild initial */
+}
+
+.visible {
+    opacity: 1 ;
+    transform: scale(1); /* Verkleinere das Bild initial */
+    transition: opacity 1s ease-out, transform 2s ease-out;
+}
+
+
+
+.team-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0; /* Abstand zwischen den Teammitgliedern */
+    width: 100%;
+    max-width: 1200px; /* Maximale Breite */
+}
+
+.team-member-reverse .team-text {
+    order: 2; /* Text nach rechts verschieben */
+}
+
+.team-member-reverse .team-image {
+    order: 1; /* Bild nach links verschieben */
+}
+
+.team-text {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-image {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-image img {
+    max-width: 100%; /* Bildgröße anpassen */
+    height: auto;
+    border-radius: 10px; /* Optionale abgerundete Ecken */
+}
+
+.team-image img {
+    max-width: 50%; /* Bildgröße anpassen, hier auf 70% der Containerbreite */
+    height: auto;
+    border-radius: 10px; /* Optionale abgerundete Ecken */
+}
+.contact-section {
+    background-color: #ffffff; /* Weiße Hintergrundfarbe */
+    padding: 50px 20px; /* Innenabstand oben und unten */
+    text-align: center; /* Zentriert den Text */
+}
+
+.contact-section .headline {
+    color: #789e2d; /* Farbe der Überschrift */
+    margin-bottom: 20px; /* Abstand unter der Überschrift */
+}
+
+.contact-description {
+    font-family: 'Roboto', sans-serif; /* Schriftart */
+    font-size: 18px; /* Schriftgröße */
+    color: #333; /* Textfarbe */
+    margin-bottom: 40px; /* Abstand unter dem Beschreibungstext */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto; /* Zentriert das Formular */
+}
+
+.contact-form label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.contact-button {
+    background-color: #789e2d; /* Hintergrundfarbe */
+    color: #ffffff; /* Schriftfarbe */
+    border: none;
+    padding: 10px 20px; /* Innenabstand */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background-color: #537907; /* Dunklere Hintergrundfarbe beim Hover */
+}
+
+
+.footer {
+    background-color: #414141; /* Gleiche Farbe wie die Top-Bar */
+    color: #ffffff; /* Weiße Schriftfarbe */
+    padding: 20px; /* Innenabstand */
+    text-align: center; /* Zentriert den Text */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Abstand zwischen Impressum-Link und Copyright */
+}
+
+.impressum-link {
+    color: #ffffff; /* Weiße Schriftfarbe */
+    text-decoration: none; /* Entfernt den Unterstrich */
+    font-size: 12px; /* Kleinere Schriftgröße */
+}
+
+.impressum-link:hover {
+    text-decoration: underline; /* Unterstrich beim Hover */
+}
+
+.copyright {
+    font-size: 12px; /* Kleinere Schriftgröße */
+}
