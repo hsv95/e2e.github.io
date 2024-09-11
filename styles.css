@@ -76,7 +76,7 @@ body {
     top: 5%;
     right: 2%;
     display: inline-block; /* Ermöglicht das Platzieren des Dropdown-Menüs direkt darunter */
-    z-index: 1; /* Stelle sicher, dass das Symbol über dem Video liegt */
+    z-index: 99; /* Stelle sicher, dass das Symbol über dem Video liegt */
     
 }
 
@@ -100,8 +100,12 @@ body {
 
 /* Mobile-friendly settings */
 @media screen and (max-width: 768px) {
+    header{
+        height: 200px; /* Höhe des Header-Videos anpassen */
+    }
     .menu-icon {
         right: 10px; /* Für kleinere Bildschirme näher am Rand */
+        z-index: 99;
     }
 
     .dropdown-menu {
@@ -143,11 +147,11 @@ body {
 }
 
 .header-icon {
-    position: absolute;
+    position: relative;
     width: 7vw; /* Icon-Größe relativ zur Viewport-Breite */
     height: auto; /* Höhe passt sich automatisch an */
-    left: 30px;
-    top: -60px;
+    left: 5%;
+    top:5%;
     opacity: 0.9;
 }
 
@@ -155,7 +159,7 @@ body {
     position: relative;
     text-align: center;
     left: 50%;
-    top: 30%;
+    bottom:10%;
     transform: translate(-50%, -50%);
     color: #f0f0f0;
     font-family: 'Roboto-light', sans-serif;
@@ -169,7 +173,29 @@ body {
 
     .header-title {
         font-size: 6vw; /* Größere Überschrift für kleinere Bildschirme */
-    }
+        bottom: 0;
+ }
+    .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0; /* Rechtsbündig */
+            
+            width: auto; /* Automatische Breitenanpassung an den Inhalt */
+            background-color: #414141;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 999; /* Menü wird über anderen Elementen angezeigt */
+        }
+        .dropdown-menu a {
+            color: #ffffff; /* Setzt die Schriftfarbe im Dropdown-Menü auf weiß */
+            text-decoration: none; /* Entfernt den Unterstrich */
+            display: block; /* Macht die Links als Block-Elemente, damit sie den gesamten Bereich füllen */
+            padding: 5px 0; /* Fügt Innenabstand hinzu */
+            font-size: x-small;
+        }
+        
 }
 
 video {
@@ -335,16 +361,20 @@ video {
     text-align: center;
 }
 
-.team-image img {
-    max-width: 100%; /* Bildgröße anpassen */
-    height: auto;
-    border-radius: 10px; /* Optionale abgerundete Ecken */
-}
+
 
 .team-image img {
     max-width: 50%; /* Bildgröße anpassen, hier auf 70% der Containerbreite */
     height: auto;
     border-radius: 10px; /* Optionale abgerundete Ecken */
+}
+/* Für mobile Geräte (max-width: 767px) */
+@media (max-width: 767px) {
+    .team-section img {
+        width: 80%; /* Passe die Breite auf 80% des umgebenden Containers an */
+        max-width: none; /* Entferne die maximale Breite */
+        height: auto; /* Behalte das Seitenverhältnis bei */
+    }
 }
 .contact-section {
     background-color: #ffffff; /* Weiße Hintergrundfarbe */
